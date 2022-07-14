@@ -1,5 +1,5 @@
 import InterviewerListItem from "./InterviewerListItem"
-import "components/InterviewerList.scss";
+import "styles/InterviewerList.scss";
 import React from "react";
 
 
