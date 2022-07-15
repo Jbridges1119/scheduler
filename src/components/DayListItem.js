@@ -2,6 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import "styles/DayListItem.scss";
 
+
+
+//Component that returns a single day box filled with info from props
 export default function DayListItem(props) {
   let dayClass = classNames("day-list__item", {"day-list__item--selected" : props.selected, "day-list__item--full" : (props.spots === 0)})
 

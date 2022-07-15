@@ -1,6 +1,8 @@
 import DayListItem from './DayListItem'
 import React from "react";
 
+
+//Function that passes props to DAYLISTITEM - Returns a looped list of days
 export default function DayList(props) {
   const day = props.days.map((day) => {
     return (

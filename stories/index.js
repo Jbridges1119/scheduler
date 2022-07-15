@@ -8,7 +8,7 @@ import InterviewerList from "components/InterviewerList"
 import "index.scss";
 import DayListItem from "components/DayListItem"
 import Button from "components/Button";
-import Appointment from "components/Appointment/index.js"
+import Appointment from "components/Appointment/index"
 import Header from "components/Appointment/Header.js"
 import Empty from "components/Appointment/Empty.js"
 import Show from "components/Appointment/Show"
