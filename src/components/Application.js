@@ -4,7 +4,7 @@ import "styles/Application.scss";
 import { useState, useEffect } from "react";
 import Appointment from 'components/Appointment/index'
 import axios from 'axios'
-import getAppointmentsForDay from 'helpers/selectors'
+import {getAppointmentsForDay, getInterview} from 'helpers/selectors'
 
 // const appointments = {
 //   "1": {
@@ -74,10 +74,13 @@ export default function Application(props) {
   const appointmentsList = function () {
     return (
       dailyAppointments.map((appointment) => {
+        const interview = getInterview(state, appointment.interview);
+
         return (
           <Appointment
             key={appointment.id}
-            {...appointment}
+            {...appointment} 
+            {...interview}
           />
         )
       })
