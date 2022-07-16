@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Appointment from 'components/Appointment/index'
 import axios from 'axios'
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from 'helpers/selectors'
-import useVisualMode from 'hooks/useVisualMode'
+
 
 export default function Application(props) {
   //The current database info saved in the VDOM
@@ -20,7 +20,8 @@ export default function Application(props) {
   //Helper function to filter info from single day
   const dailyAppointments = getAppointmentsForDay(state, state.day)
   const dailyInterviewers = getInterviewersForDay(state, state.day)
-//API that calls database of the 3 used info
+
+  //API that calls database three times for data
   useEffect(() => {
     Promise.all([
       axios.get(`/api/days`),
@@ -31,29 +32,23 @@ export default function Application(props) {
         setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
       });
   }, []);
-//Function to hand each appointment info to Appointment component
+
+  //Function to hand each appointment info to Appointment component
   const appointmentsList = dailyAppointments.map((appointment) => {
- 
-
-
     const interview = getInterview(state, appointment.interview);
-    
-
     return (
       <Appointment
         key={appointment.id}
         {...appointment}
         {...interview}
-        interviewer={dailyInterviewers}
+        interviewer={[...dailyInterviewers]}
       />
     )
   })
 
-//DAYLIST - given days state info and passed down
-//APPOINTMENTLIST - Function to hand each appointment info to Appointment component
-//APPOINTMENT - Given last key to end the day
   return (
     <main className="layout">
+     
       <section className="sidebar">
         <img
           className="sidebar--centered"
@@ -62,21 +57,23 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
+          {/* DAYLIST - given days state info and passed down*/}
           <DayList days={state.days} value={state.day} onChange={setDay} />
-
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
           alt="Lighthouse Labs"
         />
-
       </section>
+
       <section className="schedule">
+        {/* APPOINTMENTLIST - Function to hand each appointment info to Appointment component*/}
         {appointmentsList}
+        {/* APPOINTMENT - Given last key to end the day */}
         <Appointment key="last" time="5pm" />
-
       </section>
+   
     </main>
   );
 }
