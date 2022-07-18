@@ -5,7 +5,7 @@ import Button from "components/Button";
 //Component - Create/Edit
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
-  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [interviewer, setInterviewer] = useState(props.interviewer.id || null);
   const reset = function () {
     setStudent("");
     setInterviewer(null);

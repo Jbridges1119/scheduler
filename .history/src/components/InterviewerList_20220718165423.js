@@ -5,7 +5,8 @@ import React from "react";
 
 export default function InterviewerList(props) {
   const interviewersList = function () {
-
+    console.log(props.value, "test")
+    console.log(props.value.id, "test")
     return (
       props.interviewers.map((person) => {
         return (

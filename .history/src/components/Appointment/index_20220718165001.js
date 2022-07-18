@@ -68,7 +68,6 @@ export default function Appointment(props) {
           interviewers={props.interviewer}
           onCancel={() => back()}
           onSave={save}
-          interview={null}
         />
       )}
       {mode === SAVING && <Status message={mode} />}
@@ -82,7 +81,7 @@ export default function Appointment(props) {
           onCancel={() => back()}
           onSave={save}
           student={props.interview.student}
-          interviewer={props.interview.interviewer.id}
+          interviewer={props.interview.interviewer ? props.interview.interviewer : null}
         />
       )}
     </article>

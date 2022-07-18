@@ -5,7 +5,6 @@ import React from "react";
 
 export default function InterviewerList(props) {
   const interviewersList = function () {
-
     return (
       props.interviewers.map((person) => {
         return (
@@ -13,7 +12,7 @@ export default function InterviewerList(props) {
             key={person.id}
             name={person.name}
             avatar={person.avatar}
-            selected={person.id === props.value}
+            selected={person.id === props.value.id}
             setInterviewer={()=> props.onChange(person.id)}
           />
         )

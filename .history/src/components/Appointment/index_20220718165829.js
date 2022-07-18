@@ -50,7 +50,7 @@ export default function Appointment(props) {
   function onEdit() {
     transition(EDIT)
   }
-
+console.log(props.interview, "what")
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -82,7 +82,7 @@ export default function Appointment(props) {
           onCancel={() => back()}
           onSave={save}
           student={props.interview.student}
-          interviewer={props.interview.interviewer.id}
+          interviewer={props.interview.interviewer ? props.interview.interviewer.id : null}
         />
       )}
     </article>

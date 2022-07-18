@@ -5,7 +5,6 @@ import React from "react";
 
 export default function InterviewerList(props) {
   const interviewersList = function () {
-
     return (
       props.interviewers.map((person) => {
         return (
