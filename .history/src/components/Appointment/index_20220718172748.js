@@ -32,15 +32,15 @@ export default function Appointment(props) {
     props.bookInterview(props.id, interview).then(() => {
       transition(SHOW);
     })
-    .catch(error => transition(ERROR_SAVE, true));
+    .catch(error => transition(ERROR_SAVE));
   }
 
   function onDelete() {
-    transition(CONFIRM);
+    transition(CONFIRM, true);
   }
 
   function onConfirm() {
-    transition(DELETE, true);
+    transition(DELETE);
     props.cancelInterview(props.id).then(() => {
       transition(EMPTY);
     })
@@ -55,7 +55,9 @@ export default function Appointment(props) {
     transition(EDIT)
   }
 
+  function onClose() {
 
+  }
 
   return (
     <article className="appointment">

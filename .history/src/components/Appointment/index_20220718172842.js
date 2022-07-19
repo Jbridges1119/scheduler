@@ -36,11 +36,11 @@ export default function Appointment(props) {
   }
 
   function onDelete() {
-    transition(CONFIRM);
+    transition(CONFIRM, true);
   }
 
   function onConfirm() {
-    transition(DELETE, true);
+    transition(DELETE);
     props.cancelInterview(props.id).then(() => {
       transition(EMPTY);
     })

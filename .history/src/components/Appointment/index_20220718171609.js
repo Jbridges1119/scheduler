@@ -7,7 +7,6 @@ import useVisualMode from "hooks/useVisualMode";
 import Form from "components/Appointment/Form";
 import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
-import Error from "components/Appointment/Error";
 
 //Selects display of empty or show(interview)
 export default function Appointment(props) {
@@ -32,19 +31,19 @@ export default function Appointment(props) {
     props.bookInterview(props.id, interview).then(() => {
       transition(SHOW);
     })
-    .catch(error => transition(ERROR_SAVE, true));
+    .catch(error => transition(ERROR_SAVE));
   }
 
   function onDelete() {
-    transition(CONFIRM);
+    transition(CONFIRM, true);
   }
 
   function onConfirm() {
-    transition(DELETE, true);
+    transition(DELETE);
     props.cancelInterview(props.id).then(() => {
       transition(EMPTY);
     })
-    .catch(error => transition(ERROR_SAVE, true));
+    .catch(error => transition(ERROR_SAVE));
   }
 
   function onCancel() {
@@ -54,8 +53,6 @@ export default function Appointment(props) {
   function onEdit() {
     transition(EDIT)
   }
-
-
 
   return (
     <article className="appointment">
@@ -90,9 +87,6 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer.id}
         />
-      )}
-      {mode === ERROR_SAVE && (
-        <Error message={"Error"} onClose={()=> back()}/>
       )}
     </article>
   );

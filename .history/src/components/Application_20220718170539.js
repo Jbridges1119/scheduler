@@ -53,14 +53,15 @@ export default function Application(props) {
   };
   console.log(appointment)
 
-  return axios.delete(`/api/appointments/${id}`)
-  .then(()=> {
+  return axios.delete(`/api/appointments/${id}`).then(()=> {
     setState({
       ...state,
       appointments
     });
   })
-
+  .catch(()=> {
+        
+  })
  }
     
   function bookInterview(id, interview) {
@@ -79,7 +80,9 @@ export default function Application(props) {
         appointments
       })
     })
+    .catch(()=> {
 
+    })    
   }
   
   //Function to hand each appointment info to Appointment component

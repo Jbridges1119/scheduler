@@ -36,7 +36,7 @@ export default function Appointment(props) {
   }
 
   function onDelete() {
-    transition(CONFIRM);
+    transition(CONFIRM, true);
   }
 
   function onConfirm() {
