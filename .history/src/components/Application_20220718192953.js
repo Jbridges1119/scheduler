@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import DayList from "components/DayList";
 import "styles/Application.scss";
 import Appointment from "components/Appointment/index";
@@ -18,7 +18,16 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
 
-
+  function updateSpots( daysAppointments) {
+    const spots = daysAppointments.map((appointment) => {
+      let count = 0
+      if (!appointment.interview) {
+        count = count + 1
+      }
+    })
+    
+  }
+updateSpots(dailyAppointments)
 
 
   //Function to hand each appointment info to Appointment component

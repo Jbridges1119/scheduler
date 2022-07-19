@@ -1,0 +1,104 @@
+import { useState, useEffect } from "react";
+import axios from 'axios'
+import {
+  getAppointmentsForDay,
+  getInterviewersForDay,
+  getInterview,
+} from "helpers/selectors";
+
+export default function useApplicationData(props) {
+  //The current database info saved
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {},
+    interviewers: {},
+  });
+  //Function to setState on day only
+  const setDay = (day) => setState({ ...state, day });
+
+ //API that calls database three times for data
+ useEffect(() => {
+  Promise.all([
+    axios.get(`/api/days`),
+    axios.get(`/api/appointments`),
+    axios.get(`/api/interviewers`),
+  ]).then((all) => {
+    setState((prev) => ({
+      ...prev,
+      days: all[0].data,
+      appointments: all[1].data,
+      interviewers: all[2].data,
+    }));
+  });
+}, []);
+
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    return axios.delete(`/api/appointments/${id}`).then(() => {
+      setState({
+        ...state,
+        appointments,
+      });
+    });
+  }
+
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      setState({
+        ...state,
+        appointments,
+      });
+    });
+  }
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+
+  function updateSpots( state ) {
+    //the days id
+    const dayIndex = state.days.findIndex(dayInfo => dayInfo.name === state.day);
+    console.log(dayIndex)
+    const counter = dailyAppointments.map((appointment) => !appointment.interview)
+    //the spot count
+    const count = counter.filter(spot => spot === true)
+    const spots = count.length
+    const newState = {...state}
+    setState(newState, newState.days[dayIndex].spots = spots)
+    console.log(newState)
+      //  const test = days[dayIndex].spots = spots
+   
+    // 
+    //   if (!appointment.interview) {
+    //     count++
+    //   }
+    // })
+    
+    
+    
+    
+  }
+updateSpots(state)
+
+
+
+
+
+
+
+
+  return { state, setDay, bookInterview, cancelInterview,  }
+}

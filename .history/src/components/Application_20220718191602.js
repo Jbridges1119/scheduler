@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import DayList from "components/DayList";
 import "styles/Application.scss";
 import Appointment from "components/Appointment/index";
@@ -18,6 +18,10 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
 
+  function updateSpots(day, days, appointments) {
+    dailyAppointments
+
+  }
 
 
 
