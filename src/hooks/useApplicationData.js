@@ -40,12 +40,19 @@ export default function useApplicationData(props) {
     );
     const filterAppoints = appoints.filter((info) => info === true);
     const spots = filterAppoints.length;
+    //
+    //
     //Make updated mock-state
+    //Make Variable that refrences to selected day in original current state
     const objDay = state.days[dayIndex];
+    //Make copy of slected day in original current state and update spots count
     const dayCopy = { ...objDay, spots };
+    //Make copy of state.days array
     const daysCopy = [...state.days];
+    //Update new copy of state.days array with updated selected day copy
     daysCopy[dayIndex] = dayCopy;
 
+    //Return new (non-state) days array
     return daysCopy;
   }
 

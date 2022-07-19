@@ -12,6 +12,7 @@ import Error from "components/Appointment/Error";
 //Selects display of empty or show(interview)
 export default function Appointment(props) {
   const ERROR_SAVE = "ERROR_SAVE"
+  const ERROR_DELETE = "ERROR_DELETE"
   const EDIT = "EDIT";
   const CONFIRM = "CONFIRM";
   const DELETE = "DELETE";
@@ -44,7 +45,7 @@ export default function Appointment(props) {
     props.cancelInterview(props.id).then(() => {
       transition(EMPTY);
     })
-    .catch(error => transition(ERROR_SAVE, true));
+    .catch(error => transition(ERROR_DELETE, true));
   }
 
   function onCancel() {
@@ -92,7 +93,10 @@ export default function Appointment(props) {
         />
       )}
       {mode === ERROR_SAVE && (
-        <Error message={"Error"} onClose={()=> back()}/>
+        <Error message={"Could not save appointment"} onClose={()=> back()}/>
+      )}
+      {mode === ERROR_DELETE && (
+        <Error message={"Could not cancel appointment"} onClose={()=> back()}/>
       )}
     </article>
   );
