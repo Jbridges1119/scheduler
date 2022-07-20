@@ -41,7 +41,7 @@ describe("Application tests #1", () => {
       target: { value: "Lydia Miller-Jones" },
     });
     fireEvent.click(
-      getByAltText(appointment, "https://i.imgur.com/Nmx0Qxo.png")
+      getByAltText(appointment, "Tori Malcolm")
     );
     fireEvent.click(getByText(appointment, "Save"));
 
@@ -90,7 +90,7 @@ describe("Application tests #1", () => {
     );
     fireEvent.click(getByAltText(appointment, /edit/i));
     fireEvent.click(
-      getByAltText(appointment, "https://i.imgur.com/LpaY82x.png")
+      getByAltText(appointment, "Sylvia Palmer")
     );
     fireEvent.change(getByTestId(appointment, /student-name-input/i), {
       target: { value: "test" },
@@ -120,7 +120,7 @@ describe("Application tests #1", () => {
       target: { value: "Lydia Miller-Jones" },
     });
     fireEvent.click(
-      getByAltText(appointment, "https://i.imgur.com/Nmx0Qxo.png")
+      getByAltText(appointment, "Tori Malcolm")
     );
     fireEvent.click(getByText(appointment, "Save"));
 

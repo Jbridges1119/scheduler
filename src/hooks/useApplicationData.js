@@ -38,8 +38,7 @@ export default function useApplicationData(props) {
     const appoints = filterDay[0].appointments.map(
       (info) => !appointments[info].interview && true
     );
-    const filterAppoints = appoints.filter((info) => info === true);
-    const spots = filterAppoints.length;
+    const spots = appoints.filter((info) => info === true).length;
     //
     //
     //Make updated mock-state
