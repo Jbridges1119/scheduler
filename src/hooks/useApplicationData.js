@@ -67,7 +67,8 @@ export default function useApplicationData(props) {
     };
     const days = updateSpots(state, appointments);
 
-    return axios.delete(`/api/appointments/${id}`).then(() => {
+    return axios.delete(`/api/appointments/${id}`)
+    .then(() => {
       setState({
         ...state,
         appointments,
@@ -87,7 +88,8 @@ export default function useApplicationData(props) {
     };
     const days = updateSpots(state, appointments);
 
-    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+    return axios.put(`/api/appointments/${id}`, { interview })
+    .then(() => {
       setState({
         ...state,
         appointments,

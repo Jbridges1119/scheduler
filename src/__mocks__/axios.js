@@ -56,6 +56,12 @@ const fixtures = {
 
 export default {
   defaults: { baseURL: "" },
+  //Content not going anywhere so axios.get(.../${id}, {interview}) can just be caught by one .put
+  put: jest.fn(url => {
+      return Promise.resolve({
+        status: 204, statusText: "No Content"
+      })
+  }),
   get: jest.fn(url => {
     if (url === "/api/days") {
       return Promise.resolve({
@@ -81,4 +87,7 @@ export default {
       });
     }
   })
+
+  
+
 }
