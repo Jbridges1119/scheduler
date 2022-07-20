@@ -15,7 +15,7 @@ export default function Appointment(props) {
   const ERROR_DELETE = "ERROR_DELETE"
   const EDIT = "EDIT";
   const CONFIRM = "CONFIRM";
-  const DELETE = "DELETE";
+  const DELETE = "DELETING";
   const SAVING = "SAVING";
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
