@@ -23,7 +23,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+  //Adds interview to state and api
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -37,11 +37,11 @@ export default function Appointment(props) {
       })
       .catch((error) => transition(ERROR_SAVE, true));
   }
-
+  //Set mode to confirm and load confirm component
   function onDelete() {
     transition(CONFIRM);
   }
-
+  //Set mode to delete and returns back to empty component - removes interview from api and state
   function onConfirm() {
     transition(DELETE, true);
     props
@@ -51,11 +51,11 @@ export default function Appointment(props) {
       })
       .catch((error) => transition(ERROR_DELETE, true));
   }
-
+  //Runs back function - Goes back to show or edit
   function onCancel() {
     back();
   }
-
+  //Changes mode to Edit for component
   function onEdit() {
     transition(EDIT);
   }

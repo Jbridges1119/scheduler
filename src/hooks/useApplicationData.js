@@ -28,6 +28,7 @@ export default function useApplicationData(props) {
     });
   }, []);
 
+  //Updates spots for specific day and returns all updates days state
   function updateSpots(state, appointments) {
     const newState = { ...state, appointments };
     //Day to change
@@ -55,6 +56,7 @@ export default function useApplicationData(props) {
     return daysCopy;
   }
 
+  //Cancels interview and updates api then state
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
@@ -75,6 +77,7 @@ export default function useApplicationData(props) {
     });
   }
 
+  //Books interview and updates api then state
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],

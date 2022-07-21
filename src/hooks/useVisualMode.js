@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//Custom hook- Updates mode and history to track flow of interview boxes
 export default function useVisualMode(initial) {
   const input = () => initial;
   const [mode, setMode] = useState(input);

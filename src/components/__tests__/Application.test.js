@@ -4,7 +4,6 @@ import {
   cleanup,
   waitForElement,
   fireEvent,
-  prettyDOM,
   getByText,
   getByTestId,
   getAllByTestId,
@@ -22,9 +21,7 @@ describe("Application tests #1", () => {
     const { getByText } = render(<Application />);
 
     await waitForElement(() => getByText("Monday"));
-
     fireEvent.click(getByText("Tuesday"));
-
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
 
@@ -32,25 +29,20 @@ describe("Application tests #1", () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
-
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
-
     fireEvent.click(getByAltText(appointment, "Add"));
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
     fireEvent.click(getByAltText(appointment, "Tori Malcolm"));
     fireEvent.click(getByText(appointment, "Save"));
-
     expect(getByText(appointment, /saving/i)).toBeInTheDocument();
 
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
-
     const day = getAllByTestId(container, "day").find((day) =>
       getByText(day, "Monday")
     );
-
     expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
   });
 
@@ -58,11 +50,9 @@ describe("Application tests #1", () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
-
     const appointment = getAllByTestId(container, "appointment").find(
       (appointment) => queryByText(appointment, "Archie Cohen")
     );
-
     fireEvent.click(getByAltText(appointment, /delete/i));
     expect(
       getByText(appointment, /Delete the appointment?/i)
@@ -71,7 +61,6 @@ describe("Application tests #1", () => {
     expect(getByText(appointment, /deleting/i)).toBeInTheDocument();
 
     await waitForElement(() => getByAltText(appointment, "Add"));
-
     const day = getAllByTestId(container, "day").find((day) =>
       getByText(day, /monday/i)
     );
@@ -82,7 +71,6 @@ describe("Application tests #1", () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
-
     const appointment = getAllByTestId(container, "appointment").find(
       (appointment) => queryByText(appointment, "Archie Cohen")
     );
@@ -107,17 +95,14 @@ describe("Application tests #1", () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
-
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
-
     fireEvent.click(getByAltText(appointment, "Add"));
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
     fireEvent.click(getByAltText(appointment, "Tori Malcolm"));
     fireEvent.click(getByText(appointment, "Save"));
-
     expect(getByText(appointment, /saving/i)).toBeInTheDocument();
 
     await waitForElement(() =>
@@ -132,11 +117,9 @@ describe("Application tests #1", () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
-
     const appointment = getAllByTestId(container, "appointment").find(
       (appointment) => queryByText(appointment, "Archie Cohen")
     );
-
     fireEvent.click(getByAltText(appointment, /delete/i));
     expect(
       getByText(appointment, /Delete the appointment?/i)

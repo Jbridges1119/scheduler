@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "styles/InterviewerListItem.scss";
 
+//Component that returns a single interview box filled with info from props
 export default function InterviewerListItem(props) {
   let interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,

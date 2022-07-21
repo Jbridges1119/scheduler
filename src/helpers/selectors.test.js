@@ -1,6 +1,8 @@
-import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
-
-
+import {
+  getAppointmentsForDay,
+  getInterviewersForDay,
+  getInterview,
+} from "helpers/selectors";
 
 const state = {
   days: [
@@ -43,7 +45,7 @@ const state = {
       id: 2,
       name: "Tori Malcolm",
       avatar: "https://i.imgur.com/Nmx0Qxo.png",
-    }
+    },
   },
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-//Empty appointment slow with img button
+//Empty appointment slot with img button
 export default function Empty(props) {
   return (
     <main className="appointment__add">
