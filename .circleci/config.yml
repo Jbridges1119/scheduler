@@ -28,12 +28,12 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-          - "c9:fe:26:24:a0:d1:c9:e8:cc:b7:33:7c:2f:f8:47:e7"
-    - checkout
-    - run:
-        name: Push Master to Production
-        command: |
-          git push https://github.com/Jbridges1119/scheduler master:production
+            - "c9:fe:26:24:a0:d1:c9:e8:cc:b7:33:7c:2f:f8:47:e7"
+      - checkout
+      - run:
+          name: Push Master to Production
+          command: |
+            git push https://github.com/Jbridges1119/scheduler master:production
 
 workflows:
   version: 2
