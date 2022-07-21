@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-**Interview Scheduler** is an amazing app to help setup a busy person with an interview. **Interview Scheduler** is easy to use, just click the big plus symbol on an open timeslot Mon-Fri between 12pm-5pm and you will be greated with a welcoming field to enter you name and select one of 5 interviewers. Don't like Tory? That's Ok because Lindsay is available. Just hit save after and your interview is listed in it's timeslot with the relevant information. Download your free copy of **Interview Scheduler** now! 
+**Interview Scheduler** is an amazing app to help set up a busy person with an interview. **Interview Scheduler** is easy to use, just click the big plus symbol on an open timeslot Mon-Fri between 12pm-5pm and you will be greeted with a welcoming field to enter you name and select one of 5 interviewers. Don't like Tory? That's Ok because Lindsay is available. Just hit save after and your interview is listed in it's time slot with the relevant information. Download your free copy of **Interview Scheduler** now! 
 
 
 *Disclaimer: Interview Scheduler will not promise you a job offer. If you get a job offer then Interview Scheduler will take full responsibility for said job and offer. Any side effects from using Interview Scheduler are the sole responsibility of the user and Interview Scheduler cannot be held accountable.*
@@ -12,8 +12,8 @@
 #### Live Test
 
 **[Interview Scheduler](https://62d8be91472cad0009c7796b--interview-scheduler-jbridges.netlify.app/)**
-
-
+*Heroku API servers require a short amount time to load after 30min of inactivity.*
+*Heroku API servers periodically go down for maintenance.*
 
 ## Pictures
 

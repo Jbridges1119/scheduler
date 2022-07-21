@@ -40,18 +40,16 @@ export default function useApplicationData(props) {
       (info) => !appointments[info].interview && true
     );
     const spots = appoints.filter((info) => info === true).length;
+    
     //
     //
-    //Make updated mock-state
-    //Make Variable that refrences to selected day in original current state
-    const objDay = state.days[dayIndex];
-    //Make copy of slected day in original current state and update spots count
-    const dayCopy = { ...objDay, spots };
+
+    //Make copy of slected day from our updated newState copy and updates spots count
+    const dayCopy = { ...newState.days[dayIndex], spots};
     //Make copy of state.days array
     const daysCopy = [...state.days];
     //Update new copy of state.days array with updated selected day copy
     daysCopy[dayIndex] = dayCopy;
-
     //Return new (non-state) days array
     return daysCopy;
   }
