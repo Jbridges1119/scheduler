@@ -18,15 +18,16 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
-deploy:
-  machine:
-    enabled: true
 
-  working_directory: ~/client
+  deploy:
+    machine:
+      enabled: true
 
-  steps:
-    - add_ssh_keys:
-        fingerprints:
+    working_directory: ~/client
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
           - "c9:fe:26:24:a0:d1:c9:e8:cc:b7:33:7c:2f:f8:47:e7"
     - checkout
     - run:
