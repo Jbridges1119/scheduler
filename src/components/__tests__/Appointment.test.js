@@ -6,14 +6,9 @@ import Appointment from "components/Appointment/index";
 
 afterEach(cleanup);
 
-
-
 describe("Appointment", () => {
-xit("renders without crashing", () => {
-  render(<Appointment />);
+  xit("renders without crashing", () => {
+    render(<Appointment />);
+  });
 });
-})
 
-
-
-//W - Jest Watch Mode

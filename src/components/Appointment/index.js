@@ -11,8 +11,8 @@ import Error from "components/Appointment/Error";
 
 //Selects display of empty or show(interview)
 export default function Appointment(props) {
-  const ERROR_SAVE = "ERROR_SAVE"
-  const ERROR_DELETE = "ERROR_DELETE"
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
   const EDIT = "EDIT";
   const CONFIRM = "CONFIRM";
   const DELETE = "DELETING";
@@ -30,10 +30,12 @@ export default function Appointment(props) {
       interviewer,
     };
     transition(SAVING);
-    props.bookInterview(props.id, interview).then(() => {
-      transition(SHOW);
-    })
-    .catch(error => transition(ERROR_SAVE, true));
+    props
+      .bookInterview(props.id, interview)
+      .then(() => {
+        transition(SHOW);
+      })
+      .catch((error) => transition(ERROR_SAVE, true));
   }
 
   function onDelete() {
@@ -42,10 +44,12 @@ export default function Appointment(props) {
 
   function onConfirm() {
     transition(DELETE, true);
-    props.cancelInterview(props.id).then(() => {
-      transition(EMPTY);
-    })
-    .catch(error => transition(ERROR_DELETE, true));
+    props
+      .cancelInterview(props.id)
+      .then(() => {
+        transition(EMPTY);
+      })
+      .catch((error) => transition(ERROR_DELETE, true));
   }
 
   function onCancel() {
@@ -56,13 +60,8 @@ export default function Appointment(props) {
     transition(EDIT);
   }
 
-
-
   return (
-    <article 
-    className="appointment"
-    data-testid="appointment"
-    >
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
@@ -96,11 +95,14 @@ export default function Appointment(props) {
         />
       )}
       {mode === ERROR_SAVE && (
-        <Error message={"Could not save appointment"} onClose={()=> back()}/>
+        <Error message={"Could not save appointment"} onClose={() => back()} />
       )}
       {mode === ERROR_DELETE && (
-        <Error message={"Could not cancel appointment"} onClose={()=> back()}/>
+        <Error
+          message={"Could not cancel appointment"}
+          onClose={() => back()}
+        />
       )}
     </article>
   );
-};
+}

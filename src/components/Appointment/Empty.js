@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 //Empty appointment slow with img button
 export default function Empty(props) {
@@ -11,6 +11,5 @@ export default function Empty(props) {
         onClick={props.onAdd}
       />
     </main>
-
   );
-};
+}

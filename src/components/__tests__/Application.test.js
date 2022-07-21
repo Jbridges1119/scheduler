@@ -40,9 +40,7 @@ describe("Application tests #1", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
-    fireEvent.click(
-      getByAltText(appointment, "Tori Malcolm")
-    );
+    fireEvent.click(getByAltText(appointment, "Tori Malcolm"));
     fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, /saving/i)).toBeInTheDocument();
@@ -89,9 +87,7 @@ describe("Application tests #1", () => {
       (appointment) => queryByText(appointment, "Archie Cohen")
     );
     fireEvent.click(getByAltText(appointment, /edit/i));
-    fireEvent.click(
-      getByAltText(appointment, "Sylvia Palmer")
-    );
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.change(getByTestId(appointment, /student-name-input/i), {
       target: { value: "test" },
     });
@@ -119,17 +115,16 @@ describe("Application tests #1", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
-    fireEvent.click(
-      getByAltText(appointment, "Tori Malcolm")
-    );
+    fireEvent.click(getByAltText(appointment, "Tori Malcolm"));
     fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, /saving/i)).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Could not save appointment"));
-    fireEvent.click(getByAltText(appointment, "Close"))
+    await waitForElement(() =>
+      getByText(appointment, "Could not save appointment")
+    );
+    fireEvent.click(getByAltText(appointment, "Close"));
     expect(queryByText(appointment, "Save")).toBeInTheDocument();
-
   });
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
@@ -149,9 +144,10 @@ describe("Application tests #1", () => {
     fireEvent.click(getByText(appointment, /confirm/i));
     expect(getByText(appointment, /deleting/i)).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Could not cancel appointment"));
-    fireEvent.click(getByAltText(appointment, "Close"))
+    await waitForElement(() =>
+      getByText(appointment, "Could not cancel appointment")
+    );
+    fireEvent.click(getByAltText(appointment, "Close"));
     expect(getByText(appointment, "Archie Cohen")).toBeInTheDocument();
-  })
-
+  });
 });
