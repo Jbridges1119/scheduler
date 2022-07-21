@@ -18,8 +18,7 @@
 ## Pictures
 
 #### Desktop layout!
-!["screenshot of desktop layout"](https://github.com/Jbridges1119/scheduler/blob/master/docs/Layout.
-png?raw=true)
+!["screenshot of desktop layout"](https://github.com/Jbridges1119/scheduler/blob/master/docs/Layout.png?raw=true)
 
 #### Mobile layout!
 !["screenshot of mobile layout"](https://github.com/Jbridges1119/scheduler/blob/master/docs/mobile.png?raw=true)
