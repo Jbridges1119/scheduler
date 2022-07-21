@@ -12,7 +12,8 @@
 #### Live Test
 
 **[Interview Scheduler](https://62d8be91472cad0009c7796b--interview-scheduler-jbridges.netlify.app/)**
-*Heroku API servers require a short amount time to load after 30min of inactivity.*
+
+*Heroku API servers require a short amount time to load after 30min of inactivity.*<br />
 *Heroku API servers periodically go down for maintenance.*
 
 ## Pictures
