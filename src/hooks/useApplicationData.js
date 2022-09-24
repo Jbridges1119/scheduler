@@ -70,7 +70,7 @@ export default function useApplicationData(props) {
       setState({
         ...state,
         appointments,
-        days,
+        days
       });
     });
   }
@@ -98,3 +98,5 @@ export default function useApplicationData(props) {
 
   return { state, setDay, bookInterview, cancelInterview };
 }
+
+ 
