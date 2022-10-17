@@ -9,8 +9,6 @@
 
 **[Interview Scheduler](https://sched.jbridges1119.net/)**
 
-*Heroku API servers require a short amount time to load after 30min of inactivity.*<br />
-*Heroku API servers periodically go down for maintenance.*
 
 ## Pictures
 
