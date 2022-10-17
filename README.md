@@ -5,9 +5,7 @@
 
 ## Final Product
 
-### Live Test
-
-**[Interview Scheduler](https://sched.jbridges1119.net/)**
+### [Interview Scheduler - Deployed](https://sched.jbridges1119.net/)
 
 
 ## Pictures
