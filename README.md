@@ -1,14 +1,15 @@
-# Interview Scheduler
+# [Interview Scheduler](https://interview-scheduler-jbridges.netlify.app/)
 
-**Interview Scheduler** is an amazing app to help set up a busy person with an interview. **Interview Scheduler** is easy to use, just click the big plus symbol on an open timeslot Mon-Fri between 12pm-5pm and you will be greeted with a welcoming field to enter you name and select one of 5 interviewers. Don't like Tory? That's Ok because Lindsay is available. Just hit save after and your interview is listed in it's time slot with the relevant information. Download your free copy of **Interview Scheduler** and begin scheduling interviews today! 
+**Interview Scheduler** is an amazing app to help set up a busy person with an interview. **Interview Scheduler** is easy to use, just click the big plus symbol on an open timeslot Mon-Fri between 12pm-5pm and you will be greeted with a welcoming field to enter you name and select one of 5 interviewers. Interview Scheduler was made using **React**, **Node.JS**, **Axios**, **PostgreSQL**, and testing was performed using **Jest,**, **Cypress**, **Storybook**, **CircleCi**.
 
+External API can be found at: [Interview Scheduler - API](https://github.com/Jbridges1119/scheduler-api)
 
 ## Final Product
 
-### [Interview Scheduler - Deployed](https://sched.jbridges1119.net/)
+### [Interview Scheduler - Deployed](https://interview-scheduler-jbridges.netlify.app/)
 
 
-## Pictures
+### Pictures
 
 #### Desktop layout!
 !["screenshot of desktop layout"](https://github.com/Jbridges1119/scheduler/blob/master/docs/Layout.png?raw=true)
